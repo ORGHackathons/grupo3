@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1020 340" width="100%" height="100%" style="background-color: #0b1329; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; border-radius: 12px; border: 1px solid #1e293b;">
+  <defs>
+    <!-- Arrow Marker Standard -->
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#38bdf8" />
+    </marker>
+    <!-- Arrow Marker Urgent -->
+    <marker id="arrow-urgent" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#ef4444" />
+    </marker>
+    <!-- Arrow Marker Regular -->
+    <marker id="arrow-reg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#10b981" />
+    </marker>
+    <!-- Arrow Marker Promo -->
+    <marker id="arrow-promo" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#f59e0b" />
+    </marker>
+    <!-- Arrow Marker Dispatch -->
+    <marker id="arrow-disp" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#a855f7" />
+    </marker>
+
+    <!-- Gradients -->
+    <linearGradient id="grad-card" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+    <linearGradient id="grad-urgent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b1319" />
+      <stop offset="100%" stop-color="#1e1b2e" />
+    </linearGradient>
+    <linearGradient id="grad-reg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d2822" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+    <linearGradient id="grad-dock" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#261b3d" />
+      <stop offset="100%" stop-color="#13172e" />
+    </linearGradient>
+  </defs>
+
+  <!-- Title / Subtitle inside diagram -->
+  <text x="30" y="32" fill="#94a3b8" font-size="13" font-weight="600" letter-spacing="1">ARQUITETURA DE EXPEDIÇÃO DINÂMICA • VELOZMART MPS</text>
+
+  <!-- 1. ENTRADA: NOVO PEDIDO -->
+  <g transform="translate(30, 60)">
+    <rect width="180" height="180" rx="10" fill="url(#grad-card)" stroke="#38bdf8" stroke-width="1.8" />
+    <rect x="12" y="14" width="75" height="20" rx="4" fill="#0284c7" opacity="0.3" />
+    <text x="20" y="28" fill="#38bdf8" font-size="11" font-weight="700">INCLUSÃO</text>
+    
+    <text x="14" y="58" fill="#f8fafc" font-size="15" font-weight="700">📦 Novo Pedido</text>
+    <text x="14" y="78" fill="#64748b" font-size="11">Variáveis de Entrada:</text>
+    
+    <rect x="14" y="88" width="152" height="22" rx="4" fill="#0f172a" stroke="#334155" />
+    <text x="22" y="103" fill="#cbd5e1" font-size="11">▸ priorityScore (IA: 0-100)</text>
+    
+    <rect x="14" y="115" width="152" height="22" rx="4" fill="#0f172a" stroke="#334155" />
+    <text x="22" y="130" fill="#cbd5e1" font-size="11">▸ dispatchWindow (min)</text>
+    
+    <rect x="14" y="142" width="152" height="22" rx="4" fill="#0f172a" stroke="#334155" />
+    <text x="22" y="157" fill="#cbd5e1" font-size="11">▸ sizeCategory (P, M, G)</text>
+  </g>
+
+  <!-- Seta: Inclusão -> Triagem -->
+  <line x1="210" y1="150" x2="255" y2="150" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrow)" />
+
+  <!-- 2. DECISOR: DISPATCH WINDOW <= 30 MIN? -->
+  <g transform="translate(260, 95)">
+    <polygon points="70,0 140,55 70,110 0,55" fill="#1e293b" stroke="#f59e0b" stroke-width="2" />
+    <text x="70" y="47" fill="#fbbf24" font-size="12" font-weight="700" text-anchor="middle">Window</text>
+    <text x="70" y="65" fill="#f8fafc" font-size="13" font-weight="700" text-anchor="middle">≤ 30 min?</text>
+  </g>
+
+  <!-- Ramo SIM (Urgente - Sobe para Fila 1) -->
+  <path d="M 330 95 L 330 65 L 430 65" fill="none" stroke="#ef4444" stroke-width="2" marker-end="url(#arrow-urgent)" />
+  <rect x="340" y="48" width="65" height="18" rx="3" fill="#ef4444" opacity="0.2" />
+  <text x="345" y="61" fill="#f87171" font-size="11" font-weight="700">SIM (Crítico)</text>
+
+  <!-- Ramo NÃO (Regular - Desce para Fila 2) -->
+  <path d="M 330 205 L 330 235 L 430 235" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#arrow-reg)" />
+  <rect x="340" y="222" width="65" height="18" rx="3" fill="#10b981" opacity="0.2" />
+  <text x="345" y="235" fill="#4ade80" font-size="11" font-weight="700">NÃO (Seguro)</text>
+
+  <!-- 3. FILA 1: URGENTES -->
+  <g transform="translate(435, 20)">
+    <rect width="270" height="92" rx="8" fill="url(#grad-urgent)" stroke="#ef4444" stroke-width="2" />
+    <rect x="12" y="10" width="130" height="18" rx="3" fill="#ef4444" opacity="0.3" />
+    <text x="18" y="23" fill="#fca5a5" font-size="10" font-weight="800">PRIORIDADE MÁXIMA</text>
+    <text x="14" y="48" fill="#f87171" font-size="15" font-weight="700">🔥 FILA 1: Urgentes</text>
+    <text x="14" y="68" fill="#f8fafc" font-size="11.5">Estrutura: <tspan fill="#38bdf8" font-weight="600">Max-Heap</tspan> por priorityScore</text>
+    <text x="14" y="83" fill="#94a3b8" font-size="10.5">Objetivo: Blindagem total contra quebra de SLA</text>
+  </g>
+
+  <!-- 4. FILA 2: REGULARES -->
+  <g transform="translate(435, 188)">
+    <rect width="270" height="92" rx="8" fill="url(#grad-reg)" stroke="#10b981" stroke-width="1.8" />
+    <rect x="12" y="10" width="120" height="18" rx="3" fill="#10b981" opacity="0.25" />
+    <text x="18" y="23" fill="#86efac" font-size="10" font-weight="800">BUFFER DINÂMICO</text>
+    <text x="14" y="48" fill="#4ade80" font-size="15" font-weight="700">⏳ FILA 2: Regulares</text>
+    <text x="14" y="68" fill="#f8fafc" font-size="11.5">Estrutura: <tspan fill="#38bdf8" font-weight="600">Min-Heap</tspan> por dispatchWindow</text>
+    <text x="14" y="83" fill="#94a3b8" font-size="10.5">Objetivo: Enfileiramento seguro &amp; anti-aging</text>
+  </g>
+
+  <!-- 5. RE-PRIORIZAÇÃO / PROMOÇÃO TEMPORAL (SETA CURVA) -->
+  <path d="M 570 188 C 570 145, 570 145, 570 120" fill="none" stroke="#f59e0b" stroke-width="2.5" stroke-dasharray="5,4" marker-end="url(#arrow-promo)" />
+  <rect x="580" y="138" width="150" height="34" rx="4" fill="#0f172a" stroke="#f59e0b" stroke-width="1.2" />
+  <text x="588" y="152" fill="#fbbf24" font-size="10" font-weight="700">🔄 PROMOÇÃO TEMPORAL</text>
+  <text x="588" y="165" fill="#94a3b8" font-size="9.5">Ao atingir Window ≤ 30 min</text>
+
+  <!-- 6. CONVERGÊNCIA PARA A DOCA -->
+  <line x1="705" y1="66" x2="775" y2="125" stroke="#ef4444" stroke-width="2.2" marker-end="url(#arrow-urgent)" />
+  <text x="715" y="85" fill="#fca5a5" font-size="10" font-weight="700">1º a Sair</text>
+
+  <line x1="705" y1="234" x2="775" y2="175" stroke="#10b981" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrow-reg)" />
+  <text x="715" y="215" fill="#86efac" font-size="10">2º a Sair</text>
+
+  <!-- 7. SAÍDA: DOCA DE EXPEDIÇÃO -->
+  <g transform="translate(780, 80)">
+    <rect width="210" height="140" rx="10" fill="url(#grad-dock)" stroke="#a855f7" stroke-width="2" />
+    <rect x="12" y="12" width="105" height="18" rx="3" fill="#a855f7" opacity="0.3" />
+    <text x="18" y="25" fill="#d8b4fe" font-size="10" font-weight="800">EXPEDIÇÃO FINAL</text>
+    
+    <text x="14" y="52" fill="#c084fc" font-size="15" font-weight="700">🚚 Doca de Saída</text>
+    
+    <rect x="12" y="65" width="186" height="60" rx="5" fill="#0b1329" stroke="#334155" />
+    <text x="20" y="82" fill="#f8fafc" font-size="10.5" font-weight="700">Regra de Desempate Físico:</text>
+    <text x="20" y="98" fill="#fbbf24" font-size="11" font-weight="800">Tamanho: G &gt; M &gt; P</text>
+    <text x="20" y="114" fill="#94a3b8" font-size="9.5">Desobstrui baias de empacotamento</text>
+  </g>
+
+  <!-- Rodapé do Diagrama com complexidade -->
+  <g transform="translate(30, 290)">
+    <rect width="960" height="36" rx="6" fill="#1e293b" stroke="#334155" />
+    <text x="20" y="23" fill="#94a3b8" font-size="11.5">
+      <tspan fill="#38bdf8" font-weight="700">Complexidade Algorítmica:</tspan> Inserção: <tspan fill="#4ade80" font-weight="600">O(log N)</tspan> | Despacho: <tspan fill="#4ade80" font-weight="600">O(1)</tspan> | Promoção Temporal: <tspan fill="#4ade80" font-weight="600">O(K log N)</tspan> | Blindagem de SLA: <tspan fill="#f87171" font-weight="600">100% dos Urgentes Priorizados</tspan>
+    </text>
+  </g>
+</svg>
