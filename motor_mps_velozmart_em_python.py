@@ -4,8 +4,16 @@ Arquitetura: Dupla Fila de Prioridade (Dual-Heap) com Peso Composto Dinâmico
 """
 
 import heapq
+import sys
 from dataclasses import dataclass, field
 from typing import List, Optional
+
+# Garante suporte a UTF-8 em terminais Windows (cp1252)
+if hasattr(sys.stdout, "reconfigure"):
+    try:
+        sys.stdout.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
 
 
 @dataclass
