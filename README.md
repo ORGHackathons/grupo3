@@ -1,4 +1,23 @@
-# 📦 Marketplace Priority Sorter (MPS) — VelozMart
+## 🏅 Participação no DiverseDev 2026
+
+Este projeto foi desenvolvido para o [desafio](Projeto%20Final%20-%20CT%20-%20Ordenação%20e%20Prior.md) **Coding Tank — DiverseDev 2026**, da Ada em parceria com o **Mercado Eletrônico**.
+
+### Aprovação para a 3ª fase
+
+Nosso perfil avançou para a **3ª fase: entrevista em grupo com o Mercado Eletrônico**.
+
+[Acesse a página oficial do processo seletivo](https://ada.tech/talentos/mercado-eletronico-diversedev-2026).
+
+![Aprovação para a 3ª fase do DiverseDev 2026](aprovação%203ª%20fase.png)
+
+### Timeline das etapas
+
+Confira abaixo o cronograma das etapas do processo seletivo:
+
+![Timeline das etapas do DiverseDev 2026](timeline%20das%20etapas.png)
+
+
+## SOLUÇÃO: 📦 Marketplace Priority Sorter (MPS) — VelozMart
 
 > **Desafio Coding Tank — 1765 | DiverseDev 2026 (Ordenação e Prioridade)**  
 > **Grupo 3** • Solução algorítmica de priorização dinâmica em tempo real para expedição logística.
@@ -7,6 +26,7 @@
 
 ## 📌 Sumário
 - [1. Visão Geral e Contexto](#-1-visão-geral-e-contexto)
+- [Participação no DiverseDev 2026](#-participação-no-diversedev-2026)
 - [2. O Problema das Abordagens Tradicionais](#-2-o-problema-das-abordagens-tradicionais)
 - [3. Arquitetura da Solução](#-3-arquitetura-da-solução)
   - [3.1 Cálculo do Peso Composto Dinâmico](#31-cálculo-do-peso-composto-dinâmico)
@@ -146,6 +166,8 @@ POS  | STATUS (ACESSÍVEL) | PEDIDO   | SCORE  | PRAZO    | TAM  | URGÊNCIA (U)
 ├── Apresentação com Modelo (1).pdf                # Slides executivos da apresentação
 ├── MPS_VelozMart_Apresentacao_e_Roteiro_16min.html.pdf # Roteiro detalhado de fala (16 min)
 ├── diagrama_fluxo.svg                             # Diagrama arquitetural vetorial
+├── aprovação 3ª fase.png                          # Comprovante de avanço para a 3ª fase
+├── timeline das etapas.png                        # Timeline do processo seletivo
 ├── apresentação.md                                # Apresentação completa em formato Marp
 ├── preview.html                                   # Visualizador HTML da apresentação
 └── README.md                                      # Guia completo do projeto
