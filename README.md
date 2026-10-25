@@ -26,7 +26,6 @@ Confira abaixo o cronograma das etapas do processo seletivo:
 
 ## 📌 Sumário
 - [1. Visão Geral e Contexto](#-1-visão-geral-e-contexto)
-- [Participação no DiverseDev 2026](#-participação-no-diversedev-2026)
 - [2. O Problema das Abordagens Tradicionais](#-2-o-problema-das-abordagens-tradicionais)
 - [3. Arquitetura da Solução](#-3-arquitetura-da-solução)
   - [3.1 Cálculo do Peso Composto Dinâmico](#31-cálculo-do-peso-composto-dinâmico)
